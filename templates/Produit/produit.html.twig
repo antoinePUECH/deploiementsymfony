@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{produit.nom}}
+{% endblock %}
+
+{% block body %}
+    <h1>{{produit.nom}}</h1>
+    <td><img src="{{ asset('/uploads/'~produit.photo) }}" style="width: 200px"></td>
+    <p>{{produit.quantite}} produits en stock</p>
+    <h4>{{produit.prix}}€</h4>
+    <a href="{{ path('delete_produit', {'id': produit.id }) }}">Supprimer</a>
+
+    <h2>Combien voulez vous de {{produit.nom}} ?</h2> 
+     {{form(form)}}
+</br>
+     <a href="index.html.twig" class="btn btn-info">Retour</a>
+{% endblock %}

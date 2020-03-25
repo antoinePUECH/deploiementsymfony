@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+<h1> Bienvenue sur la liste de nos produits ! :)</h1>
+
+{% if produits is not empty %}
+    <h4> il ya {{ produits|length }} produits </h4>
+
+        <table border='1' class="table table-striped table-inverse">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>photo</th>
+                    <th>quantite</th>
+                    <th>prix</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for un_produit in produits %}
+                <tr>
+                
+                    <td><a href="{{path('mon_produit', {'id': un_produit.id}) }}">
+								{{un_produit.nom}}
+							</a></td>
+                    <td><img src="{{ asset('/uploads/'~un_produit.photo) }}" style="width: 200px"></td>
+                    <td>{{un_produit.quantite}}</td>
+                    <td>{{un_produit.prix}} €</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <h3>RUPTURE DE STOCK (dsl)</h3>
+{% endif %}
+
+
+	<h2>Ajouter un produit</h2>
+	{{ form(form_produit_new) }}
+    {% endblock %}

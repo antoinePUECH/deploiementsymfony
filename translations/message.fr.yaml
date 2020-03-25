@@ -1,0 +1,10 @@
+produit:
+  titre: 'Bienvenue sur votre liste de produit !'
+  produit: 'Add product'
+  nom: 'Name'
+  description: 'Description'
+  Qte: 'Quantity'
+  Prix: 'Price'
+  categorie: 'Category'
+  Image: 'Image'
+  there_is: "There is nb products"
